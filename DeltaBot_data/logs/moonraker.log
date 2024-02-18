@@ -1,0 +1,751 @@
+-------------------- Log Start | Sat Feb 17 05:48:01 2024 --------------------
+data_path: /home/scott/DeltaBot_data
+is_default_data_path: False
+config_file: /home/scott/DeltaBot_data/config/moonraker.conf
+startup_warnings: []
+verbose: False
+debug: False
+asyncio_debug: False
+is_backup_config: False
+is_python_package: False
+instance_uuid: 2d5d16890307426493c293c698a71bfb
+unix_socket_path: /home/scott/DeltaBot_data/comms/moonraker.sock
+software_version: v0.8.0-310-g67c98f6
+git_branch: master
+git_remote: origin
+git_repo_url: https://github.com/Arksine/moonraker.git
+modified_files: []
+unofficial_components: []
+log_file: /home/scott/DeltaBot_data/logs/moonraker.log
+python_version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+launch_args: /home/scott/moonraker-env/bin/python /home/scott/moonraker/moonraker/moonraker.py -d /home/scott/DeltaBot_data
+msgspec_enabled: False
+uvloop_enabled: False
+
+#################### Moonraker Configuration ####################
+
+[server]
+host = 0.0.0.0
+port = 7125
+klippy_uds_address = /home/scott/DeltaBot_data/comms/klippy.sock
+
+[authorization]
+trusted_clients = 
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	FE80::/10
+	::1/128
+cors_domains = 
+	*.lan
+	*.local
+	*://localhost
+	*://localhost:*
+	*://my.mainsail.xyz
+	*://app.fluidd.xyz
+
+[octoprint_compat]
+
+[history]
+
+[update_manager]
+channel = dev
+refresh_interval = 168
+
+[update_manager fluidd]
+type = web
+channel = stable
+repo = fluidd-core/fluidd
+path = ~/fluidd
+
+[update_manager fluidd-config]
+type = git_repo
+primary_branch = master
+path = ~/fluidd-config
+origin = https://github.com/fluidd-core/fluidd-config.git
+managed_services = klipper
+
+#################################################################
+All Configuration Files:
+/home/scott/DeltaBot_data/config/moonraker.conf
+#################################################################
+
+Database Versions: pylmdb = 1.4.1, lmdb = (0, 9, 29)
+Unsafe Shutdown Count: 9
+
+System Info:
+
+***python***
+  version: (3, 10, 12, 'final', 0)
+  version_string: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+
+***cpu_info***
+  cpu_count: 4
+  bits: 64bit
+  processor: x86_64
+  cpu_desc: Intel(R) Core(TM) i3-4130 CPU @ 3.40GHz
+  serial_number: 
+  hardware_desc: 
+  model: 
+  total_memory: 8040420
+  memory_units: kB
+
+***sd_info***
+
+***distribution***
+  name: Ubuntu 22.04.3 LTS
+  id: ubuntu
+  version: 22.04
+  version_parts: {'major': '22', 'minor': '04', 'build_number': ''}
+  like: debian
+  codename: jammy
+  release_info: {}
+
+***virtualization***
+  virt_type: none
+  virt_identifier: none
+
+***network***
+
+***canbus***
+
+***Allowed Services***
+  klipper_mcu
+  webcamd
+  MoonCord
+  KlipperScreen
+  moonraker-telegram-bot
+  moonraker-obico
+  sonar
+  crowsnest
+  octoeverywhere
+  octoeverywhere-DeltaBot
+Module libcamera unavailble, import failed
+
+Systemd unit moonraker-DeltaBot.service:
+unit_name: moonraker-DeltaBot.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['network-online.target', '-.mount', 'sysinit.target', 'system.slice']
+**After=['basic.target', '-.mount', 'systemd-journald.socket', 'system.slice', 'network-online.target', 'sysinit.target']
+**SupplementaryGroups=['moonraker-admin']
+**EnvironmentFiles=/home/scott/DeltaBot_data/systemd/moonraker.env
+**ExecStart=/home/scott/moonraker-env/bin/python $MOONRAKER_ARGS
+**WorkingDirectory=/home/scott/moonraker
+**FragmentPath=/etc/systemd/system/moonraker-DeltaBot.service
+**Description=API Server for Klipper SV1 DeltaBot
+**User=scott
+
+Systemd unit klipper-DeltaBot.service:
+unit_name: klipper-DeltaBot.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['sysinit.target', 'system.slice', '-.mount']
+**After=['basic.target', 'systemd-journald.socket', 'system.slice', 'network-online.target', '-.mount', 'sysinit.target']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/scott/DeltaBot_data/systemd/klipper.env
+**ExecStart=/home/scott/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/scott/klipper
+**FragmentPath=/etc/systemd/system/klipper-DeltaBot.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=scott
+Git Repo moonraker: Warnings detected:
+  Multiple instances of Moonraker managing this repo:
+  moonraker-KobraGo@61e6be5202c5414d8b06e99072926217
+  moonraker-DeltaBot@2d5d16890307426493c293c698a71bfb
+Git Repo klipper: Warnings detected:
+  Multiple instances of Moonraker managing this repo:
+  moonraker-KobraGo@61e6be5202c5414d8b06e99072926217
+  moonraker-DeltaBot@2d5d16890307426493c293c698a71bfb
+Git Repo fluidd-config: Warnings detected:
+  Multiple instances of Moonraker managing this repo:
+  moonraker-PrusaMk2@85b67ffa294f435f8fd6378eb439b231
+  moonraker-KobraGo@61e6be5202c5414d8b06e99072926217
+  moonraker-DeltaBot@2d5d16890307426493c293c698a71bfb
+Klipper Version: v0.12.0-102-g9f41f53c
+2024-02-17 00:48:01,535 [websockets.py:on_close()] - Websocket Closed: ID: 140353926863968 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.31
+2024-02-17 11:52:36,748 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.4.41
+2024-02-17 11:52:36,749 [application.py:log_request()] - 101 GET /websocket (192.168.4.41) [_TRUSTED_USER_] 2.11ms
+2024-02-17 11:52:36,749 [websockets.py:open()] - Websocket Opened: ID: 140353926871888, Proxied: True, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36, Host Name: 192.168.4.102
+2024-02-17 11:52:36,858 [websockets.py:_handle_identify()] - Websocket 140353926871888 Client Identified - Name: OctoEverywhere-BrowserAgent, Version: 1.0.0, Type: web
+2024-02-17 12:34:44,633 [websockets.py:on_close()] - Websocket Closed: ID: 140353926871888 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 7.88
+2024-02-17 12:40:08,067 [application.py:log_request()] - 101 GET /websocket (192.168.4.41) [_TRUSTED_USER_] 1.61ms
+2024-02-17 12:40:08,067 [websockets.py:open()] - Websocket Opened: ID: 140353926865648, Proxied: True, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36, Host Name: 192.168.4.102
+2024-02-17 12:40:08,081 [websockets.py:_handle_identify()] - Websocket 140353926865648 Client Identified - Name: OctoEverywhere-BrowserAgent, Version: 1.0.0, Type: web
+2024-02-17 13:44:16,451 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.4.41
+2024-02-17 18:55:26,247 [websockets.py:on_close()] - Websocket Closed: ID: 140353926865648 Close Code: None, Close Reason: None, Pong Time Elapsed: 8.15
+2024-02-17 19:54:09,447 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.4.41
+2024-02-17 19:54:09,448 [application.py:log_request()] - 101 GET /websocket (192.168.4.41) [_TRUSTED_USER_] 2.10ms
+2024-02-17 19:54:09,448 [websockets.py:open()] - Websocket Opened: ID: 140353926862480, Proxied: True, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36, Host Name: 192.168.4.102
+2024-02-17 19:54:09,489 [websockets.py:_handle_identify()] - Websocket 140353926862480 Client Identified - Name: OctoEverywhere-BrowserAgent, Version: 1.0.0, Type: web
+2024-02-17 20:00:31,206 [websockets.py:write_to_socket()] - Websocket closed while writing: 140353926872464
+2024-02-17 20:00:35,339 [websockets.py:on_close()] - Websocket Closed: ID: 140353926872464 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.80
+2024-02-17 20:00:44,976 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.4.212
+2024-02-17 20:00:44,978 [application.py:log_request()] - 101 GET /websocket (192.168.4.212) [_TRUSTED_USER_] 2.05ms
+2024-02-17 20:00:44,978 [websockets.py:open()] - Websocket Opened: ID: 140353926869056, Proxied: True, User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36, Host Name: 192.168.4.102
+2024-02-17 20:00:45,872 [websockets.py:_handle_identify()] - Websocket 140353926869056 Client Identified - Name: OctoEverywhere-BrowserAgent, Version: 1.0.0, Type: web
+2024-02-17 20:33:59,351 [websockets.py:on_close()] - Websocket Closed: ID: 140353926862480 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.86
+2024-02-17 20:51:24,094 [application.py:log_request()] - 101 GET /websocket (192.168.4.41) [_TRUSTED_USER_] 1.54ms
+2024-02-17 20:51:24,095 [websockets.py:open()] - Websocket Opened: ID: 140353926863968, Proxied: True, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36, Host Name: 192.168.4.102
+2024-02-17 20:51:24,182 [websockets.py:_handle_identify()] - Websocket 140353926863968 Client Identified - Name: OctoEverywhere-BrowserAgent, Version: 1.0.0, Type: web
+2024-02-17 21:04:16,552 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.4.212
+2024-02-17 21:13:45,754 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2024-02-17 21:13:50,276 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2024-02-17 21:13:50,306 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-DeltaBot.service
+2024-02-17 21:13:50,321 [server.py:add_log_rollover_item()] - 
+Systemd unit klipper-DeltaBot.service:
+unit_name: klipper-DeltaBot.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['system.slice', 'sysinit.target', '-.mount']
+**After=['sysinit.target', 'system.slice', 'basic.target', '-.mount', 'systemd-journald.socket', 'network-online.target']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/scott/DeltaBot_data/systemd/klipper.env
+**ExecStart=/home/scott/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/scott/klipper
+**FragmentPath=/etc/systemd/system/klipper-DeltaBot.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=scott
+2024-02-17 21:13:50,572 [server.py:add_log_rollover_item()] - Klipper Version: v0.12.0-102-g9f41f53c-dirty
+2024-02-17 21:14:33,844 [application.py:log_request()] - 101 GET /websocket (192.168.4.41) [_TRUSTED_USER_] 1.66ms
+2024-02-17 21:14:33,844 [websockets.py:open()] - Websocket Opened: ID: 140353902003056, Proxied: True, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36, Host Name: 192.168.4.102
+2024-02-17 21:14:33,945 [websockets.py:_handle_identify()] - Websocket 140353902003056 Client Identified - Name: OctoEverywhere-BrowserAgent, Version: 1.0.0, Type: web
+2024-02-17 21:14:58,620 [application.py:log_request()] - 404 GET /server/database/item?namespace=webcams (192.168.4.41) [_TRUSTED_USER_] 3.13ms
+2024-02-17 21:15:00,031 [application.py:log_request()] - 101 GET /websocket?token=ETT7VN3VDAOGFI6HHVZT6F7J6H2XV7UH (192.168.4.41) [_TRUSTED_USER_] 1.59ms
+2024-02-17 21:15:00,031 [websockets.py:open()] - Websocket Opened: ID: 140353902017504, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36, Host Name: 192.168.4.102
+2024-02-17 21:15:00,485 [websockets.py:_handle_identify()] - Websocket 140353902017504 Client Identified - Name: fluidd, Version: 1.27.1-2056453, Type: web
+2024-02-17 21:15:00,486 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-02-17 21:15:20,608 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2024-02-17 21:15:20,610 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2024-02-17 21:15:20,612 [klippy_connection.py:_check_ready()] - 
+mcu 'mcu': Unable to connect
+Once the underlying issue is corrected, use the
+"FIRMWARE_RESTART" command to reset the firmware, reload the
+config, and restart the host software.
+Error configuring printer
+
+2024-02-17 21:17:04,208 [application.py:prepare()] - Upload Request Received from 192.168.4.41
+Content-Type: 
+2024-02-17 21:17:04,515 [application.py:prepare()] - Upload Request Received from 192.168.4.41
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryTV5OliADR6Muo3jI
+2024-02-17 21:17:04,524 [application.py:post()] - Processing Uploaded File: shell_command.cfg
+2024-02-17 21:17:04,529 [application.py:log_request()] - 201 POST /server/files/upload (192.168.4.41) [_TRUSTED_USER_] 14.04ms
+2024-02-17 21:17:05,875 [klippy_connection.py:close()] - Error closing Klippy Unix Socket
+Traceback (most recent call last):
+  File "/home/scott/moonraker/moonraker/components/klippy_connection.py", line 769, in close
+    await self.writer.wait_closed()
+  File "/usr/lib/python3.10/asyncio/streams.py", line 343, in wait_closed
+    await self._protocol._get_close_waiter(self)
+  File "/usr/lib/python3.10/asyncio/selector_events.py", line 862, in _read_ready__data_received
+    data = self._sock.recv(self.max_size)
+ConnectionResetError: [Errno 104] Connection reset by peer
+2024-02-17 21:17:05,875 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2024-02-17 21:17:05,876 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: printer.info, Code: 503, Message: Klippy Disconnected
+2024-02-17 21:17:06,127 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2024-02-17 21:17:06,136 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-DeltaBot.service
+2024-02-17 21:17:45,390 [klippy_connection.py:close()] - Error closing Klippy Unix Socket
+Traceback (most recent call last):
+  File "/home/scott/moonraker/moonraker/components/klippy_connection.py", line 769, in close
+    await self.writer.wait_closed()
+  File "/usr/lib/python3.10/asyncio/streams.py", line 343, in wait_closed
+    await self._protocol._get_close_waiter(self)
+  File "/usr/lib/python3.10/asyncio/selector_events.py", line 862, in _read_ready__data_received
+    data = self._sock.recv(self.max_size)
+ConnectionResetError: [Errno 104] Connection reset by peer
+2024-02-17 21:17:45,391 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2024-02-17 21:17:45,393 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: printer.info, Code: 503, Message: Klippy Disconnected
+2024-02-17 21:17:45,644 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2024-02-17 21:17:45,654 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-DeltaBot.service
+2024-02-17 21:17:53,961 [websockets.py:on_close()] - Websocket Closed: ID: 140353902017504 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.02
+2024-02-17 21:18:42,213 [websockets.py:on_close()] - Websocket Closed: ID: 140353902003056 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 8.32
+2024-02-17 21:18:42,648 [application.py:log_request()] - 101 GET /websocket (192.168.4.41) [_TRUSTED_USER_] 1.60ms
+2024-02-17 21:18:42,648 [websockets.py:open()] - Websocket Opened: ID: 140353926861376, Proxied: True, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36, Host Name: 192.168.4.102
+2024-02-17 21:18:42,887 [websockets.py:_handle_identify()] - Websocket 140353926861376 Client Identified - Name: OctoEverywhere-BrowserAgent, Version: 1.0.0, Type: web
+2024-02-17 21:19:15,948 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2024-02-17 21:19:15,950 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2024-02-17 21:19:15,952 [klippy_connection.py:_check_ready()] - 
+mcu 'mcu': Unable to connect
+Once the underlying issue is corrected, use the
+"FIRMWARE_RESTART" command to reset the firmware, reload the
+config, and restart the host software.
+Error configuring printer
+
+2024-02-17 21:28:28,915 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2024-02-17 21:28:28,922 [server.py:_handle_term_signal()] - Exiting with signal SIGTERM
+2024-02-17 21:28:29,078 [websockets.py:write_to_socket()] - Websocket closed while writing: 140353926869056
+2024-02-17 21:28:29,078 [websockets.py:write_to_socket()] - Websocket closed while writing: 140353926863968
+2024-02-17 21:28:29,078 [websockets.py:write_to_socket()] - Websocket closed while writing: 140353926861376
+2024-02-17 21:28:30,007 [websockets.py:on_close()] - Websocket Closed: ID: 140353926869056 Close Code: 1001, Close Reason: Server Shutdown, Pong Time Elapsed: 4.74
+2024-02-17 21:28:30,031 [websockets.py:on_close()] - Websocket Closed: ID: 140353926863968 Close Code: 1001, Close Reason: Server Shutdown, Pong Time Elapsed: 5.72
+2024-02-17 21:28:30,059 [websockets.py:on_close()] - Websocket Closed: ID: 140353926861376 Close Code: 1001, Close Reason: Server Shutdown, Pong Time Elapsed: 7.29
+2024-02-17 21:28:30,064 [database.py:close()] - Database statistics:
+
+announcements:
+psize: 4096
+depth: 0
+branch_pages: 0
+leaf_pages: 0
+overflow_pages: 0
+entries: 0
+authorized_users:
+psize: 4096
+depth: 1
+branch_pages: 0
+leaf_pages: 1
+overflow_pages: 0
+entries: 1
+fluidd:
+psize: 4096
+depth: 1
+branch_pages: 0
+leaf_pages: 1
+overflow_pages: 4
+entries: 6
+gcode_metadata:
+psize: 4096
+depth: 2
+branch_pages: 1
+leaf_pages: 31
+overflow_pages: 0
+entries: 66
+history:
+psize: 4096
+depth: 2
+branch_pages: 1
+leaf_pages: 95
+overflow_pages: 0
+entries: 190
+moonraker:
+psize: 4096
+depth: 1
+branch_pages: 0
+leaf_pages: 1
+overflow_pages: 0
+entries: 8
+obico:
+psize: 4096
+depth: 1
+branch_pages: 0
+leaf_pages: 1
+overflow_pages: 0
+entries: 1
+octoeverywhere:
+psize: 4096
+depth: 1
+branch_pages: 0
+leaf_pages: 1
+overflow_pages: 0
+entries: 1
+update_manager:
+psize: 4096
+depth: 2
+branch_pages: 1
+leaf_pages: 2
+overflow_pages: 4
+entries: 5
+2024-02-17 21:28:30,074 [server.py:main()] - Server Shutdown
+-------------------- Log Start | Sun Feb 18 02:28:56 2024 --------------------
+data_path: /home/scott/DeltaBot_data
+is_default_data_path: False
+config_file: /home/scott/DeltaBot_data/config/moonraker.conf
+startup_warnings: []
+verbose: False
+debug: False
+asyncio_debug: False
+is_backup_config: False
+is_python_package: False
+instance_uuid: 2d5d16890307426493c293c698a71bfb
+unix_socket_path: /home/scott/DeltaBot_data/comms/moonraker.sock
+software_version: v0.8.0-310-g67c98f6
+git_branch: master
+git_remote: origin
+git_repo_url: https://github.com/Arksine/moonraker.git
+modified_files: []
+unofficial_components: []
+log_file: /home/scott/DeltaBot_data/logs/moonraker.log
+python_version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+launch_args: /home/scott/moonraker-env/bin/python /home/scott/moonraker/moonraker/moonraker.py -d /home/scott/DeltaBot_data
+msgspec_enabled: False
+uvloop_enabled: False
+2024-02-17 21:28:56,129 [confighelper.py:read_file()] - Configuration File '/home/scott/DeltaBot_data/config/moonraker.conf' parsed, total size: 716 B
+2024-02-17 21:28:56,129 [server.py:add_log_rollover_item()] - 
+#################### Moonraker Configuration ####################
+
+[server]
+host = 0.0.0.0
+port = 7125
+klippy_uds_address = /home/scott/DeltaBot_data/comms/klippy.sock
+
+[authorization]
+trusted_clients = 
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	FE80::/10
+	::1/128
+cors_domains = 
+	*.lan
+	*.local
+	*://localhost
+	*://localhost:*
+	*://my.mainsail.xyz
+	*://app.fluidd.xyz
+
+[octoprint_compat]
+
+[history]
+
+[update_manager]
+channel = dev
+refresh_interval = 168
+
+[update_manager fluidd]
+type = web
+channel = stable
+repo = fluidd-core/fluidd
+path = ~/fluidd
+
+[update_manager fluidd-config]
+type = git_repo
+primary_branch = master
+path = ~/fluidd-config
+origin = https://github.com/fluidd-core/fluidd-config.git
+managed_services = klipper
+
+#################################################################
+All Configuration Files:
+/home/scott/DeltaBot_data/config/moonraker.conf
+#################################################################
+2024-02-17 21:28:56,237 [server.py:load_component()] - Component (secrets) loaded
+2024-02-17 21:28:56,239 [server.py:load_component()] - Component (template) loaded
+2024-02-17 21:28:56,243 [server.py:load_component()] - Component (klippy_connection) loaded
+2024-02-17 21:28:56,589 [server.py:load_component()] - Component (application) loaded
+2024-02-17 21:28:56,605 [server.py:load_component()] - Component (websockets) loaded
+2024-02-17 21:28:56,640 [server.py:load_component()] - Component (dbus_manager) loaded
+2024-02-17 21:28:56,666 [server.py:add_log_rollover_item()] - 
+Database Versions: pylmdb = 1.4.1, lmdb = (0, 9, 29)
+Unsafe Shutdown Count: 9
+2024-02-17 21:28:56,668 [server.py:load_component()] - Component (database) loaded
+2024-02-17 21:28:56,686 [file_manager.py:__init__()] - Using File System Observer: inotify
+2024-02-17 21:28:56,714 [server.py:load_component()] - Component (file_manager) loaded
+2024-02-17 21:28:56,727 [authorization.py:__init__()] - Authorization Configuration Loaded
+Trusted Clients:
+10.0.0.0/8
+127.0.0.0/8
+169.254.0.0/16
+172.16.0.0/12
+192.168.0.0/16
+fe80::/10
+::1/128
+CORS Domains:
+.*\.lan
+.*\.local
+.*://localhost
+.*://localhost:.*
+.*://my\.mainsail\.xyz
+.*://app\.fluidd\.xyz
+2024-02-17 21:28:56,729 [server.py:load_component()] - Component (authorization) loaded
+2024-02-17 21:28:56,735 [server.py:load_component()] - Component (klippy_apis) loaded
+2024-02-17 21:28:56,916 [server.py:add_log_rollover_item()] - 
+System Info:
+
+***python***
+  version: (3, 10, 12, 'final', 0)
+  version_string: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+
+***cpu_info***
+  cpu_count: 4
+  bits: 64bit
+  processor: x86_64
+  cpu_desc: Intel(R) Core(TM) i3-4130 CPU @ 3.40GHz
+  serial_number: 
+  hardware_desc: 
+  model: 
+  total_memory: 8040416
+  memory_units: kB
+
+***sd_info***
+
+***distribution***
+  name: Ubuntu 22.04.4 LTS
+  id: ubuntu
+  version: 22.04
+  version_parts: {'major': '22', 'minor': '04', 'build_number': ''}
+  like: debian
+  codename: jammy
+  release_info: {}
+
+***virtualization***
+  virt_type: none
+  virt_identifier: none
+
+***network***
+
+***canbus***
+
+***Allowed Services***
+  klipper_mcu
+  webcamd
+  MoonCord
+  KlipperScreen
+  moonraker-telegram-bot
+  moonraker-obico
+  sonar
+  crowsnest
+  octoeverywhere
+  octoeverywhere-DeltaBot
+2024-02-17 21:28:56,920 [server.py:load_component()] - Component (shell_command) loaded
+2024-02-17 21:28:56,920 [machine.py:__init__()] - Using System Provider: systemd_dbus
+2024-02-17 21:28:56,929 [server.py:add_log_rollover_item()] - Module libcamera unavailble, import failed
+2024-02-17 21:28:56,929 [server.py:load_component()] - Component (machine) loaded
+2024-02-17 21:28:56,931 [server.py:load_component()] - Component (data_store) loaded
+2024-02-17 21:28:56,933 [proc_stats.py:__init__()] - Unable to find 'vcgencmd', throttle checking disabled
+2024-02-17 21:28:56,933 [server.py:load_component()] - Component (proc_stats) loaded
+2024-02-17 21:28:56,936 [server.py:load_component()] - Component (job_state) loaded
+2024-02-17 21:28:56,941 [server.py:load_component()] - Component (job_queue) loaded
+2024-02-17 21:28:56,947 [server.py:load_component()] - Component (http_client) loaded
+2024-02-17 21:28:56,950 [server.py:load_component()] - Component (announcements) loaded
+2024-02-17 21:28:56,963 [server.py:load_component()] - Component (webcam) loaded
+2024-02-17 21:28:56,967 [server.py:load_component()] - Component (extensions) loaded
+2024-02-17 21:28:57,001 [base_deploy.py:log_info()] - Git Repo moonraker: Detected virtualenv: /home/scott/moonraker-env
+2024-02-17 21:28:57,008 [base_deploy.py:log_info()] - Git Repo klipper: Detected virtualenv: /home/scott/klippy-env
+2024-02-17 21:28:57,025 [server.py:load_component()] - Component (update_manager) loaded
+2024-02-17 21:28:57,031 [server.py:load_component()] - Component (history) loaded
+2024-02-17 21:28:57,033 [server.py:load_component()] - Component (octoprint_compat) loaded
+2024-02-17 21:28:57,033 [server.py:_initialize_component()] - Performing Component Post Init: [dbus_manager]
+2024-02-17 21:28:57,042 [server.py:_initialize_component()] - Performing Component Post Init: [file_manager]
+2024-02-17 21:28:57,178 [server.py:_initialize_component()] - Performing Component Post Init: [authorization]
+2024-02-17 21:28:57,178 [server.py:_initialize_component()] - Performing Component Post Init: [machine]
+2024-02-17 21:28:57,179 [machine.py:validation_init()] - Installation version in database up to date
+2024-02-17 21:28:57,322 [machine.py:check_virt_status()] - No Virtualization Detected
+2024-02-17 21:28:57,324 [machine.py:_find_public_ip()] - Detected Local IP: 192.168.4.102
+2024-02-17 21:28:57,325 [webcam.py:_set_default_host_ip()] - Default public webcam address set: http://192.168.4.102
+2024-02-17 21:28:57,335 [machine.py:extract_service_info()] - Detected alternate unit name for moonraker: moonraker-DeltaBot.service
+2024-02-17 21:28:57,340 [server.py:add_log_rollover_item()] - 
+Systemd unit moonraker-DeltaBot.service:
+unit_name: moonraker-DeltaBot.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['system.slice', '-.mount', 'sysinit.target', 'network-online.target']
+**After=['system.slice', 'network-online.target', 'sysinit.target', 'basic.target', 'systemd-journald.socket', '-.mount']
+**SupplementaryGroups=['moonraker-admin']
+**EnvironmentFiles=/home/scott/DeltaBot_data/systemd/moonraker.env
+**ExecStart=/home/scott/moonraker-env/bin/python $MOONRAKER_ARGS
+**WorkingDirectory=/home/scott/moonraker
+**FragmentPath=/etc/systemd/system/moonraker-DeltaBot.service
+**Description=API Server for Klipper SV1 DeltaBot
+**User=scott
+2024-02-17 21:28:57,341 [server.py:_initialize_component()] - Performing Component Post Init: [proc_stats]
+2024-02-17 21:28:57,341 [server.py:_initialize_component()] - Performing Component Post Init: [announcements]
+2024-02-17 21:28:57,341 [server.py:_initialize_component()] - Performing Component Post Init: [webcam]
+2024-02-17 21:28:57,341 [webcam.py:_set_default_host_ip()] - Default public webcam address set: http://192.168.4.102
+2024-02-17 21:28:57,341 [server.py:_initialize_component()] - Performing Component Post Init: [klippy_connection]
+2024-02-17 21:28:57,341 [server.py:add_log_rollover_item()] - 
+Systemd unit klipper-DeltaBot.service:
+unit_name: klipper-DeltaBot.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['system.slice', 'sysinit.target', '-.mount']
+**After=['sysinit.target', 'system.slice', 'basic.target', '-.mount', 'systemd-journald.socket', 'network-online.target']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/scott/DeltaBot_data/systemd/klipper.env
+**ExecStart=/home/scott/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/scott/klipper
+**FragmentPath=/etc/systemd/system/klipper-DeltaBot.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=scott
+2024-02-17 21:28:57,341 [server.py:_initialize_component()] - Performing Component Post Init: [update_manager]
+2024-02-17 21:28:57,342 [server.py:_initialize_component()] - Performing Component Post Init: [history]
+2024-02-17 21:28:57,352 [base_deploy.py:log_info()] - PackageDeploy: PackageKit Provider Configured
+2024-02-17 21:28:57,352 [base_deploy.py:log_info()] - Git Repo moonraker: Stored pip version: 23.3.2
+2024-02-17 21:28:58,870 [confighelper.py:create_backup()] - Backing up last working configuration to '/home/scott/DeltaBot_data/config/.moonraker.conf.bkp'
+2024-02-17 21:28:58,871 [extensions.py:start_unix_server()] - Creating Unix Domain Socket at '/home/scott/DeltaBot_data/comms/moonraker.sock'
+2024-02-17 21:28:58,872 [server.py:start_server()] - Starting Moonraker on (0.0.0.0, 7125), Hostname: printbot
+2024-02-17 21:28:58,872 [application.py:listen()] - SSL Certificate/Key not configured, aborting HTTPS Server startup
+2024-02-17 21:28:59,123 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2024-02-17 21:28:59,132 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-DeltaBot.service
+2024-02-17 21:28:59,137 [server.py:add_log_rollover_item()] - 
+Systemd unit klipper-DeltaBot.service:
+unit_name: klipper-DeltaBot.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['sysinit.target', '-.mount', 'system.slice']
+**After=['sysinit.target', 'network-online.target', 'basic.target', '-.mount', 'system.slice', 'systemd-journald.socket']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/scott/DeltaBot_data/systemd/klipper.env
+**ExecStart=/home/scott/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/scott/klipper
+**FragmentPath=/etc/systemd/system/klipper-DeltaBot.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=scott
+2024-02-17 21:28:59,389 [server.py:add_log_rollover_item()] - Klipper Version: v0.12.0-102-g9f41f53c-dirty
+2024-02-17 21:28:59,619 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.4.41
+2024-02-17 21:28:59,620 [application.py:log_request()] - 101 GET /websocket (192.168.4.41) [_TRUSTED_USER_] 1.31ms
+2024-02-17 21:28:59,620 [websockets.py:open()] - Websocket Opened: ID: 140011187007408, Proxied: True, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36, Host Name: 192.168.4.102
+2024-02-17 21:28:59,635 [websockets.py:_handle_identify()] - Websocket 140011187007408 Client Identified - Name: OctoEverywhere-BrowserAgent, Version: 1.0.0, Type: web
+2024-02-17 21:28:59,699 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.4.212
+2024-02-17 21:28:59,699 [application.py:log_request()] - 101 GET /websocket (192.168.4.212) [_TRUSTED_USER_] 0.84ms
+2024-02-17 21:28:59,700 [websockets.py:open()] - Websocket Opened: ID: 140011187490192, Proxied: True, User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36, Host Name: 192.168.4.102
+2024-02-17 21:28:59,715 [websockets.py:_handle_identify()] - Websocket 140011187490192 Client Identified - Name: OctoEverywhere-BrowserAgent, Version: 1.0.0, Type: web
+2024-02-17 21:29:00,791 [application.py:log_request()] - 101 GET /websocket (192.168.4.41) [_TRUSTED_USER_] 0.58ms
+2024-02-17 21:29:00,791 [websockets.py:open()] - Websocket Opened: ID: 140011187008800, Proxied: True, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36, Host Name: 192.168.4.102
+2024-02-17 21:29:00,843 [websockets.py:_handle_identify()] - Websocket 140011187008800 Client Identified - Name: OctoEverywhere-BrowserAgent, Version: 1.0.0, Type: web
+2024-02-17 21:29:01,248 [base_deploy.py:log_info()] - PackageKit: Detected 4 package updates:
+language-pack-en
+language-pack-en-base
+language-pack-gnome-en
+language-pack-gnome-en-base
+2024-02-17 21:29:01,253 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker status --porcelain -b) successfully finished
+2024-02-17 21:29:01,257 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker branch --list --no-color) successfully finished
+2024-02-17 21:29:01,260 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker remote get-url origin) successfully finished
+2024-02-17 21:29:02,610 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker fetch origin --prune --progress) successfully finished
+2024-02-17 21:29:02,614 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker merge-base --is-ancestor HEAD origin/master) successfully finished
+2024-02-17 21:29:02,616 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker rev-parse HEAD) successfully finished
+2024-02-17 21:29:02,626 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker describe --always --tags --long --dirty --abbrev=8) successfully finished
+2024-02-17 21:29:02,628 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker rev-parse origin/master) successfully finished
+2024-02-17 21:29:02,636 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker describe origin/master --always --tags --long --abbrev=8) successfully finished
+2024-02-17 21:29:02,639 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker rev-list HEAD..e87ab4a8955ca434b7f7c09d3eba443200cb523d --count) successfully finished
+2024-02-17 21:29:02,643 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker log 67c98f6a7610ff4196954a665e5599bea9ccf5ac..origin/master --format="sha:%H%x1Dauthor:%an%x1Ddate:%ct%x1Dsubject:%s%x1Dmessage:%b%x1E" --max-count=100) successfully finished
+2024-02-17 21:29:02,668 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker for-each-ref --count=100 --sort='-creatordate' --contains=HEAD --merged=origin/master --format='%(if)%(*objecttype)%(then)%(*objecttype) %(*objectname)%(else)%(objecttype) %(objectname)%(end) %(refname)' 'refs/tags') successfully finished
+2024-02-17 21:29:02,668 [git_deploy.py:log_repo_info()] - Git Repo moonraker Detected:
+Owner: Arksine
+Repository Name: moonraker
+Path: /home/scott/moonraker
+Remote: origin
+Branch: master
+Remote URL: https://github.com/Arksine/moonraker.git
+Recovery URL: https://github.com/Arksine/moonraker.git
+Current Commit SHA: 67c98f6a7610ff4196954a665e5599bea9ccf5ac
+Upstream Commit SHA: e87ab4a8955ca434b7f7c09d3eba443200cb523d
+Current Version: v0.8.0-310-g67c98f6a
+Upstream Version: v0.8.0-313-ge87ab4a8
+Rollback Commit: 42357891a3716cd332ef60b28af09f8732dbf67a
+Rollback Branch: master
+Rollback Version: v0.8.0-209-g42357891
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 3
+Diverged: False
+Repo Warnings:
+  Multiple instances of Moonraker managing this repo:
+  moonraker-DeltaBot@2d5d16890307426493c293c698a71bfb
+  moonraker-PrusaMk2@85b67ffa294f435f8fd6378eb439b231
+  moonraker-KobraGo@61e6be5202c5414d8b06e99072926217
+  moonraker-Ender3@f27c09a236c0415692438476cf43c78d
+2024-02-17 21:29:02,668 [base_deploy.py:log_info()] - Git Repo moonraker: Channel: dev
+2024-02-17 21:29:02,668 [base_deploy.py:log_info()] - Git Repo moonraker: Validity check for git repo passed
+2024-02-17 21:29:02,676 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper status --porcelain -b) successfully finished
+2024-02-17 21:29:02,679 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper branch --list --no-color) successfully finished
+2024-02-17 21:29:02,683 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper remote get-url origin) successfully finished
+2024-02-17 21:29:03,666 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper fetch origin --prune --progress) successfully finished
+2024-02-17 21:29:03,669 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper merge-base --is-ancestor HEAD origin/master) successfully finished
+2024-02-17 21:29:03,672 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper rev-parse HEAD) successfully finished
+2024-02-17 21:29:03,709 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper describe --always --tags --long --dirty --abbrev=8) successfully finished
+2024-02-17 21:29:03,711 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper rev-parse origin/master) successfully finished
+2024-02-17 21:29:03,745 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper describe origin/master --always --tags --long --abbrev=8) successfully finished
+2024-02-17 21:29:03,748 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper rev-list HEAD..28f06a104bc0cfe3a7d36db343ade5a805b3e132 --count) successfully finished
+2024-02-17 21:29:03,751 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper log 9f41f53c5e364694b9b41279b3b3aee34250b93a..origin/master --format="sha:%H%x1Dauthor:%an%x1Ddate:%ct%x1Dsubject:%s%x1Dmessage:%b%x1E" --max-count=100) successfully finished
+2024-02-17 21:29:03,789 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper for-each-ref --count=100 --sort='-creatordate' --contains=HEAD --merged=origin/master --format='%(if)%(*objecttype)%(then)%(*objecttype) %(*objectname)%(else)%(objecttype) %(objectname)%(end) %(refname)' 'refs/tags') successfully finished
+2024-02-17 21:29:03,789 [git_deploy.py:log_repo_info()] - Git Repo klipper Detected:
+Owner: Klipper3d
+Repository Name: klipper
+Path: /home/scott/klipper
+Remote: origin
+Branch: master
+Remote URL: https://github.com/Klipper3d/klipper
+Recovery URL: https://github.com/Klipper3d/klipper
+Current Commit SHA: 9f41f53c5e364694b9b41279b3b3aee34250b93a
+Upstream Commit SHA: 28f06a104bc0cfe3a7d36db343ade5a805b3e132
+Current Version: v0.12.0-102-g9f41f53c
+Upstream Version: v0.12.0-113-g28f06a10
+Rollback Commit: 547bfbf81847c758a3fb07e76963544bdbc6438d
+Rollback Branch: master
+Rollback Version: v0.12.0-37-g547bfbf8
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 11
+Diverged: False
+Repo Warnings:
+  Repo has untracked source files: ['klippy/extras/gcode_shell_command.py']
+  Multiple instances of Moonraker managing this repo:
+  moonraker-DeltaBot@2d5d16890307426493c293c698a71bfb
+  moonraker-PrusaMk2@85b67ffa294f435f8fd6378eb439b231
+  moonraker-KobraGo@61e6be5202c5414d8b06e99072926217
+  moonraker-Ender3@f27c09a236c0415692438476cf43c78d
+2024-02-17 21:29:03,789 [base_deploy.py:log_info()] - Git Repo klipper: Channel: dev
+2024-02-17 21:29:03,789 [base_deploy.py:log_info()] - Git Repo klipper: Validity check for git repo passed
+2024-02-17 21:29:04,725 [base_deploy.py:log_info()] - Web Client fluidd: Detected
+Repo: fluidd-core/fluidd
+Channel: stable
+Path: /home/scott/fluidd
+Local Version: v1.27.1
+Remote Version: v1.28.0
+Valid: True
+Fallback Detected: False
+Pre-release: False
+Download Url: https://github.com/fluidd-core/fluidd/releases/download/v1.28.0/fluidd.zip
+Download Size: 3629558
+Content Type: application/zip
+Rollback Version: v1.27.0
+Rollback Repo: fluidd-core/fluidd
+2024-02-17 21:29:04,728 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config status --porcelain -b) successfully finished
+2024-02-17 21:29:04,732 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config branch --list --no-color) successfully finished
+2024-02-17 21:29:04,736 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config remote get-url origin) successfully finished
+2024-02-17 21:29:05,665 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config fetch origin --prune --progress) successfully finished
+2024-02-17 21:29:05,668 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config merge-base --is-ancestor HEAD origin/master) successfully finished
+2024-02-17 21:29:05,669 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config rev-parse HEAD) successfully finished
+2024-02-17 21:29:05,672 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config describe --always --tags --long --dirty --abbrev=8) successfully finished
+2024-02-17 21:29:05,674 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config rev-parse origin/master) successfully finished
+2024-02-17 21:29:05,677 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config describe origin/master --always --tags --long --abbrev=8) successfully finished
+2024-02-17 21:29:05,679 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config rev-list HEAD..ce48c5854e9ca3ca72b63d0327069fac20e94c7c --count) successfully finished
+2024-02-17 21:29:05,679 [git_deploy.py:log_repo_info()] - Git Repo fluidd-config Detected:
+Owner: fluidd-core
+Repository Name: fluidd-config
+Path: /home/scott/fluidd-config
+Remote: origin
+Branch: master
+Remote URL: https://github.com/fluidd-core/fluidd-config.git
+Recovery URL: https://github.com/fluidd-core/fluidd-config.git
+Current Commit SHA: ce48c5854e9ca3ca72b63d0327069fac20e94c7c
+Upstream Commit SHA: ce48c5854e9ca3ca72b63d0327069fac20e94c7c
+Current Version: v1.2.0-0-gce48c585
+Upstream Version: v1.2.0-0-gce48c585
+Rollback Commit: d44ec292b776131f892ab1650eaab89e14d2199f
+Rollback Branch: master
+Rollback Version: v0.0.0-10-gd44ec292-inferred
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+Repo Warnings:
+  Multiple instances of Moonraker managing this repo:
+  moonraker-DeltaBot@2d5d16890307426493c293c698a71bfb
+  moonraker-PrusaMk2@85b67ffa294f435f8fd6378eb439b231
+2024-02-17 21:29:05,679 [base_deploy.py:log_info()] - Git Repo fluidd-config: Channel: dev
+2024-02-17 21:29:05,679 [base_deploy.py:log_info()] - Git Repo fluidd-config: Validity check for git repo passed
+2024-02-17 21:30:27,108 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2024-02-17 21:30:27,110 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2024-02-17 21:30:27,112 [klippy_connection.py:_check_ready()] - 
+mcu 'mcu': Unable to connect
+Once the underlying issue is corrected, use the
+"FIRMWARE_RESTART" command to reset the firmware, reload the
+config, and restart the host software.
+Error configuring printer
+
+2024-02-17 21:34:23,912 [websockets.py:on_close()] - Websocket Closed: ID: 140011187008800 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 2.34
+2024-02-17 21:34:24,026 [application.py:log_request()] - 101 GET /websocket (192.168.4.41) [_TRUSTED_USER_] 1.67ms
+2024-02-17 21:34:24,027 [websockets.py:open()] - Websocket Opened: ID: 140011187008464, Proxied: True, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36, Host Name: 192.168.4.102
+2024-02-17 21:34:24,147 [websockets.py:_handle_identify()] - Websocket 140011187008464 Client Identified - Name: OctoEverywhere-BrowserAgent, Version: 1.0.0, Type: web

@@ -1,0 +1,175 @@
+-------------------- Log Start | Fri Feb 16 00:35:28 2024 --------------------
+data_path: /home/scott/DeltaBot_data
+is_default_data_path: False
+config_file: /home/scott/DeltaBot_data/config/moonraker.conf
+startup_warnings: []
+verbose: False
+debug: False
+asyncio_debug: False
+is_backup_config: False
+is_python_package: False
+instance_uuid: 2d5d16890307426493c293c698a71bfb
+unix_socket_path: /home/scott/DeltaBot_data/comms/moonraker.sock
+software_version: v0.8.0-310-g67c98f6
+git_branch: master
+git_remote: origin
+git_repo_url: https://github.com/Arksine/moonraker.git
+modified_files: []
+unofficial_components: []
+log_file: /home/scott/DeltaBot_data/logs/moonraker.log
+python_version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+launch_args: /home/scott/moonraker-env/bin/python /home/scott/moonraker/moonraker/moonraker.py -d /home/scott/DeltaBot_data
+msgspec_enabled: False
+uvloop_enabled: False
+
+#################### Moonraker Configuration ####################
+
+[server]
+host = 0.0.0.0
+port = 7125
+klippy_uds_address = /home/scott/DeltaBot_data/comms/klippy.sock
+
+[authorization]
+trusted_clients = 
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	FE80::/10
+	::1/128
+cors_domains = 
+	*.lan
+	*.local
+	*://localhost
+	*://localhost:*
+	*://my.mainsail.xyz
+	*://app.fluidd.xyz
+
+[octoprint_compat]
+
+[history]
+
+[update_manager]
+channel = dev
+refresh_interval = 168
+
+[update_manager fluidd]
+type = web
+channel = stable
+repo = fluidd-core/fluidd
+path = ~/fluidd
+
+[update_manager fluidd-config]
+type = git_repo
+primary_branch = master
+path = ~/fluidd-config
+origin = https://github.com/fluidd-core/fluidd-config.git
+managed_services = klipper
+
+#################################################################
+All Configuration Files:
+/home/scott/DeltaBot_data/config/moonraker.conf
+#################################################################
+
+Database Versions: pylmdb = 1.4.1, lmdb = (0, 9, 29)
+Unsafe Shutdown Count: 9
+
+System Info:
+
+***python***
+  version: (3, 10, 12, 'final', 0)
+  version_string: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+
+***cpu_info***
+  cpu_count: 4
+  bits: 64bit
+  processor: x86_64
+  cpu_desc: Intel(R) Core(TM) i3-4130 CPU @ 3.40GHz
+  serial_number: 
+  hardware_desc: 
+  model: 
+  total_memory: 8040420
+  memory_units: kB
+
+***sd_info***
+
+***distribution***
+  name: Ubuntu 22.04.3 LTS
+  id: ubuntu
+  version: 22.04
+  version_parts: {'major': '22', 'minor': '04', 'build_number': ''}
+  like: debian
+  codename: jammy
+  release_info: {}
+
+***virtualization***
+  virt_type: none
+  virt_identifier: none
+
+***network***
+
+***canbus***
+
+***Allowed Services***
+  klipper_mcu
+  webcamd
+  MoonCord
+  KlipperScreen
+  moonraker-telegram-bot
+  moonraker-obico
+  sonar
+  crowsnest
+  octoeverywhere
+  octoeverywhere-DeltaBot
+Module libcamera unavailble, import failed
+
+Systemd unit moonraker-DeltaBot.service:
+unit_name: moonraker-DeltaBot.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['network-online.target', '-.mount', 'sysinit.target', 'system.slice']
+**After=['basic.target', '-.mount', 'systemd-journald.socket', 'system.slice', 'network-online.target', 'sysinit.target']
+**SupplementaryGroups=['moonraker-admin']
+**EnvironmentFiles=/home/scott/DeltaBot_data/systemd/moonraker.env
+**ExecStart=/home/scott/moonraker-env/bin/python $MOONRAKER_ARGS
+**WorkingDirectory=/home/scott/moonraker
+**FragmentPath=/etc/systemd/system/moonraker-DeltaBot.service
+**Description=API Server for Klipper SV1 DeltaBot
+**User=scott
+
+Systemd unit klipper-DeltaBot.service:
+unit_name: klipper-DeltaBot.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['sysinit.target', 'system.slice', '-.mount']
+**After=['basic.target', 'systemd-journald.socket', 'system.slice', 'network-online.target', '-.mount', 'sysinit.target']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/scott/DeltaBot_data/systemd/klipper.env
+**ExecStart=/home/scott/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/scott/klipper
+**FragmentPath=/etc/systemd/system/klipper-DeltaBot.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=scott
+Git Repo moonraker: Warnings detected:
+  Multiple instances of Moonraker managing this repo:
+  moonraker-KobraGo@61e6be5202c5414d8b06e99072926217
+  moonraker-DeltaBot@2d5d16890307426493c293c698a71bfb
+Git Repo klipper: Warnings detected:
+  Multiple instances of Moonraker managing this repo:
+  moonraker-KobraGo@61e6be5202c5414d8b06e99072926217
+  moonraker-DeltaBot@2d5d16890307426493c293c698a71bfb
+Git Repo fluidd-config: Warnings detected:
+  Multiple instances of Moonraker managing this repo:
+  moonraker-PrusaMk2@85b67ffa294f435f8fd6378eb439b231
+  moonraker-KobraGo@61e6be5202c5414d8b06e99072926217
+  moonraker-DeltaBot@2d5d16890307426493c293c698a71bfb
+Klipper Version: v0.12.0-102-g9f41f53c
+2024-02-15 19:35:28,158 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.4.41
+2024-02-15 19:35:28,159 [application.py:log_request()] - 101 GET /websocket (192.168.4.41) [_TRUSTED_USER_] 1.95ms
+2024-02-15 19:35:28,160 [websockets.py:open()] - Websocket Opened: ID: 140353926871216, Proxied: True, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36, Host Name: 192.168.4.102
+2024-02-15 19:35:28,175 [websockets.py:_handle_identify()] - Websocket 140353926871216 Client Identified - Name: OctoEverywhere-BrowserAgent, Version: 1.0.0, Type: web
+2024-02-15 20:39:15,934 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.4.41
+2024-02-15 23:30:16,442 [websockets.py:on_close()] - Websocket Closed: ID: 140353926871216 Close Code: None, Close Reason: None, Pong Time Elapsed: 8.27

@@ -808,3 +808,18 @@ Repo Warnings:
   moonraker-KobraGo@61e6be5202c5414d8b06e99072926217
 2024-02-17 21:29:06,927 [base_deploy.py:log_info()] - Git Repo fluidd-config: Channel: dev
 2024-02-17 21:29:06,927 [base_deploy.py:log_info()] - Git Repo fluidd-config: Validity check for git repo passed
+2024-02-17 21:32:54,008 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.4.41
+2024-02-17 21:34:09,515 [application.py:prepare()] - Upload Request Received from 192.168.4.41
+Content-Type: multipart/form-data; boundary=------------------------3d1e3b2a659d5c85
+2024-02-17 21:34:22,010 [application.py:post()] - Processing Uploaded File: AKLP_effector_e3D_v6_5015blower_PETG_4h36m.gcode
+2024-02-17 21:34:22,131 [shell_command.py:pipe_data_received()] - INFO:metadata:Object Processing is disabled
+
+2024-02-17 21:34:22,171 [shell_command.py:_check_proc_success()] - Command (/home/scott/moonraker-env/bin/python /home/scott/moonraker/moonraker/components/file_manager/metadata.py -p /home/scott/KobraGo_data/gcodes -f "AKLP_effector_e3D_v6_5015blower_PETG_4h36m.gcode") successfully finished
+2024-02-17 21:34:22,174 [application.py:log_request()] - 201 POST /api/files/local (192.168.4.41) [_TRUSTED_USER_] 12660.05ms
+2024-02-17 21:34:22,351 [job_state.py:_status_update()] - Job Started: AKLP_effector_e3D_v6_5015blower_PETG_4h36m.gcode
+2024-02-17 21:34:24,235 [application.py:log_request()] - 404 GET /server/database/item?namespace=webcams (192.168.4.41) [_TRUSTED_USER_] 7.55ms
+2024-02-17 21:34:24,746 [application.py:log_request()] - 101 GET /websocket?token=OQO5PV5JDJOTV6SGSX2SXN32CQ23RAVV (192.168.4.41) [_TRUSTED_USER_] 1.84ms
+2024-02-17 21:34:24,746 [websockets.py:open()] - Websocket Opened: ID: 139950106815040, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36, Host Name: 192.168.4.102
+2024-02-17 21:34:24,978 [websockets.py:_handle_identify()] - Websocket 139950106815040 Client Identified - Name: fluidd, Version: 1.27.1-2056453, Type: web
+2024-02-17 21:34:24,979 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-02-17 21:34:30,868 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: server.files.delete_file, Code: 403, Message: File currently in use
