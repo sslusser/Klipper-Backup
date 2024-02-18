@@ -1,0 +1,710 @@
+-------------------- Log Start | Sun Feb 18 01:29:05 2024 --------------------
+data_path: /home/scott/Ender3_data
+is_default_data_path: False
+config_file: /home/scott/Ender3_data/config/moonraker.conf
+startup_warnings: []
+verbose: False
+debug: False
+asyncio_debug: False
+is_backup_config: False
+is_python_package: False
+instance_uuid: f27c09a236c0415692438476cf43c78d
+unix_socket_path: /home/scott/Ender3_data/comms/moonraker.sock
+software_version: v0.8.0-310-g67c98f6
+git_branch: master
+git_remote: origin
+git_repo_url: https://github.com/Arksine/moonraker.git
+modified_files: []
+unofficial_components: []
+log_file: /home/scott/Ender3_data/logs/moonraker.log
+python_version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+launch_args: /home/scott/moonraker-env/bin/python /home/scott/moonraker/moonraker/moonraker.py -d /home/scott/Ender3_data
+msgspec_enabled: False
+uvloop_enabled: False
+
+#################### Moonraker Configuration ####################
+
+[server]
+host = 0.0.0.0
+port = 7126
+klippy_uds_address = /home/scott/Ender3_data/comms/klippy.sock
+
+[authorization]
+trusted_clients = 
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	FE80::/10
+	::1/128
+cors_domains = 
+	*.lan
+	*.local
+	*://localhost
+	*://localhost:*
+	*://my.mainsail.xyz
+	*://app.fluidd.xyz
+
+[octoprint_compat]
+
+[history]
+
+[update_manager]
+channel = dev
+refresh_interval = 168
+
+[update_manager fluidd]
+type = web
+channel = stable
+repo = fluidd-core/fluidd
+path = ~/fluidd
+
+[update_manager fluidd-config]
+type = git_repo
+primary_branch = master
+path = ~/fluidd-config
+origin = https://github.com/fluidd-core/fluidd-config.git
+managed_services = klipper
+
+#################################################################
+All Configuration Files:
+/home/scott/Ender3_data/config/moonraker.conf
+#################################################################
+
+Database Versions: pylmdb = 1.4.1, lmdb = (0, 9, 29)
+Unsafe Shutdown Count: 9
+
+System Info:
+
+***python***
+  version: (3, 10, 12, 'final', 0)
+  version_string: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+
+***cpu_info***
+  cpu_count: 4
+  bits: 64bit
+  processor: x86_64
+  cpu_desc: Intel(R) Core(TM) i3-4130 CPU @ 3.40GHz
+  serial_number: 
+  hardware_desc: 
+  model: 
+  total_memory: 8040420
+  memory_units: kB
+
+***sd_info***
+
+***distribution***
+  name: Ubuntu 22.04.3 LTS
+  id: ubuntu
+  version: 22.04
+  version_parts: {'major': '22', 'minor': '04', 'build_number': ''}
+  like: debian
+  codename: jammy
+  release_info: {}
+
+***virtualization***
+  virt_type: none
+  virt_identifier: none
+
+***network***
+
+***canbus***
+
+***Allowed Services***
+  klipper_mcu
+  webcamd
+  MoonCord
+  KlipperScreen
+  moonraker-telegram-bot
+  moonraker-obico
+  sonar
+  crowsnest
+  octoeverywhere
+  octoeverywhere-Ender3
+Module libcamera unavailble, import failed
+
+Systemd unit moonraker-Ender3.service:
+unit_name: moonraker-Ender3.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['-.mount', 'system.slice', 'network-online.target', 'sysinit.target']
+**After=['system.slice', 'basic.target', 'network-online.target', '-.mount', 'sysinit.target', 'systemd-journald.socket']
+**SupplementaryGroups=['moonraker-admin']
+**EnvironmentFiles=/home/scott/Ender3_data/systemd/moonraker.env
+**ExecStart=/home/scott/moonraker-env/bin/python $MOONRAKER_ARGS
+**WorkingDirectory=/home/scott/moonraker
+**FragmentPath=/etc/systemd/system/moonraker-Ender3.service
+**Description=API Server for Klipper SV1 Ender3
+**User=scott
+
+Systemd unit klipper-Ender3.service:
+unit_name: klipper-Ender3.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['system.slice', 'sysinit.target', '-.mount']
+**After=['basic.target', 'system.slice', '-.mount', 'systemd-journald.socket', 'sysinit.target', 'network-online.target']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/scott/Ender3_data/systemd/klipper.env
+**ExecStart=/home/scott/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/scott/klipper
+**FragmentPath=/etc/systemd/system/klipper-Ender3.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=scott
+Git Repo moonraker: Warnings detected:
+  Multiple instances of Moonraker managing this repo:
+  moonraker-KobraGo@61e6be5202c5414d8b06e99072926217
+  moonraker-DeltaBot@2d5d16890307426493c293c698a71bfb
+  moonraker-Ender3@f27c09a236c0415692438476cf43c78d
+Git Repo klipper: Warnings detected:
+  Multiple instances of Moonraker managing this repo:
+  moonraker-KobraGo@61e6be5202c5414d8b06e99072926217
+  moonraker-DeltaBot@2d5d16890307426493c293c698a71bfb
+  moonraker-Ender3@f27c09a236c0415692438476cf43c78d
+Git Repo fluidd-config: Warnings detected:
+  Multiple instances of Moonraker managing this repo:
+  moonraker-PrusaMk2@85b67ffa294f435f8fd6378eb439b231
+  moonraker-KobraGo@61e6be5202c5414d8b06e99072926217
+  moonraker-DeltaBot@2d5d16890307426493c293c698a71bfb
+  moonraker-Ender3@f27c09a236c0415692438476cf43c78d
+Klipper Version: v0.12.0-102-g9f41f53c
+2024-02-17 20:29:05,701 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.4.212
+2024-02-17 20:29:06,125 [application.py:log_request()] - 404 GET /server/database/item?namespace=webcams (192.168.4.212) [_TRUSTED_USER_] 2.91ms
+2024-02-17 20:29:06,517 [application.py:log_request()] - 101 GET /websocket?token=4GOHNXJNE5Q5SEHC7W3TAF5NDAGH2Z43 (192.168.4.212) [_TRUSTED_USER_] 1.60ms
+2024-02-17 20:29:06,517 [websockets.py:open()] - Websocket Opened: ID: 140343496962016, Proxied: False, User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36, Host Name: 192.168.4.102
+2024-02-17 20:29:06,617 [websockets.py:_handle_identify()] - Websocket 140343496962016 Client Identified - Name: fluidd, Version: 1.27.1-2056453, Type: web
+2024-02-17 20:29:06,617 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-02-17 20:29:12,851 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2024-02-17 20:29:12,873 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: printer.info, Code: 503, Message: Klippy Host not connected
+2024-02-17 20:29:14,108 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2024-02-17 20:29:14,118 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender3.service
+2024-02-17 20:29:14,124 [server.py:add_log_rollover_item()] - 
+Systemd unit klipper-Ender3.service:
+unit_name: klipper-Ender3.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['sysinit.target', 'system.slice', '-.mount']
+**After=['network-online.target', '-.mount', 'sysinit.target', 'systemd-journald.socket', 'basic.target', 'system.slice']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/scott/Ender3_data/systemd/klipper.env
+**ExecStart=/home/scott/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/scott/klipper
+**FragmentPath=/etc/systemd/system/klipper-Ender3.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=scott
+2024-02-17 20:29:18,417 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2024-02-17 20:29:18,419 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2024-02-17 20:29:18,669 [job_state.py:_handle_started()] - Job state initialized: standby
+2024-02-17 20:29:18,927 [klippy_connection.py:_check_ready()] - Klippy ready
+2024-02-17 20:29:19,422 [data_store.py:_init_sensors()] - Configuring available sensors: ['heater_bed', 'extruder']
+2024-02-17 20:30:08,740 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: printer.gcode.script, Code: 400, Message: Must home X and Y axes first
+2024-02-17 20:49:52,333 [klippy_connection.py:_process_status_update()] - Klippy has shutdown
+2024-02-17 20:49:52,336 [proc_stats.py:_handle_shutdown()] - 
+Moonraker System Usage Statistics:
+System Time: 1708220962.501199, Usage: 0.94%, Memory: 48584 kB
+System Time: 1708220963.504377, Usage: 0.79%, Memory: 48584 kB
+System Time: 1708220964.505009, Usage: 1.06%, Memory: 48584 kB
+System Time: 1708220965.507259, Usage: 1.06%, Memory: 48584 kB
+System Time: 1708220966.509053, Usage: 1.16%, Memory: 48584 kB
+System Time: 1708220967.509538, Usage: 1.27%, Memory: 48584 kB
+System Time: 1708220968.512243, Usage: 1.06%, Memory: 48584 kB
+System Time: 1708220969.511414, Usage: 1.34%, Memory: 48584 kB
+System Time: 1708220970.511670, Usage: 1.07%, Memory: 48584 kB
+System Time: 1708220971.513083, Usage: 1.05%, Memory: 48584 kB
+System Time: 1708220972.511817, Usage: 0.93%, Memory: 48584 kB
+System Time: 1708220973.516230, Usage: 0.71%, Memory: 48584 kB
+System Time: 1708220974.518035, Usage: 1.01%, Memory: 48584 kB
+System Time: 1708220975.517642, Usage: 1.13%, Memory: 48584 kB
+System Time: 1708220976.518088, Usage: 1.2%, Memory: 48584 kB
+System Time: 1708220977.520391, Usage: 1.19%, Memory: 48584 kB
+System Time: 1708220978.521435, Usage: 1.03%, Memory: 48584 kB
+System Time: 1708220979.522033, Usage: 1.08%, Memory: 48584 kB
+System Time: 1708220980.522541, Usage: 1.01%, Memory: 48584 kB
+System Time: 1708220981.523873, Usage: 1.03%, Memory: 48584 kB
+System Time: 1708220982.522231, Usage: 1.01%, Memory: 48584 kB
+System Time: 1708220983.525756, Usage: 0.73%, Memory: 48584 kB
+System Time: 1708220984.526700, Usage: 1.02%, Memory: 48584 kB
+System Time: 1708220985.528154, Usage: 1.04%, Memory: 48584 kB
+System Time: 1708220986.529099, Usage: 1.3%, Memory: 48584 kB
+System Time: 1708220987.526769, Usage: 1.18%, Memory: 48584 kB
+System Time: 1708220988.530917, Usage: 0.81%, Memory: 48584 kB
+System Time: 1708220989.532362, Usage: 1.07%, Memory: 48584 kB
+System Time: 1708220990.533778, Usage: 1.03%, Memory: 48584 kB
+System Time: 1708220991.534492, Usage: 1.06%, Memory: 48584 kB
+CPU Temperature: 27.8
+2024-02-17 21:13:45,781 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2024-02-17 21:13:47,271 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: printer.info, Code: 503, Message: Klippy Host not connected
+2024-02-17 21:13:47,504 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: printer.info, Code: 503, Message: Klippy Host not connected
+2024-02-17 21:13:50,117 [common.py:build_error()] - JSON-RPC Request Error - Requested Method: printer.info, Code: 503, Message: Klippy Host not connected
+2024-02-17 21:13:50,301 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2024-02-17 21:13:50,324 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender3.service
+2024-02-17 21:13:50,591 [server.py:add_log_rollover_item()] - Klipper Version: v0.12.0-102-g9f41f53c-dirty
+2024-02-17 21:15:20,639 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2024-02-17 21:15:20,640 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2024-02-17 21:15:20,642 [klippy_connection.py:_check_ready()] - 
+mcu 'mcu': Unable to connect
+Once the underlying issue is corrected, use the
+"FIRMWARE_RESTART" command to reset the firmware, reload the
+config, and restart the host software.
+Error configuring printer
+
+2024-02-17 21:28:28,918 [klippy_connection.py:_on_connection_closed()] - Klippy Connection Removed
+2024-02-17 21:28:28,927 [server.py:_handle_term_signal()] - Exiting with signal SIGTERM
+2024-02-17 21:28:29,081 [websockets.py:write_to_socket()] - Websocket closed while writing: 140343496962016
+2024-02-17 21:28:30,301 [websockets.py:on_close()] - Websocket Closed: ID: 140343496962016 Close Code: 1001, Close Reason: Server Shutdown, Pong Time Elapsed: 3.37
+2024-02-17 21:28:30,304 [database.py:close()] - Database statistics:
+
+announcements:
+psize: 4096
+depth: 0
+branch_pages: 0
+leaf_pages: 0
+overflow_pages: 0
+entries: 0
+authorized_users:
+psize: 4096
+depth: 1
+branch_pages: 0
+leaf_pages: 1
+overflow_pages: 0
+entries: 1
+fluidd:
+psize: 4096
+depth: 1
+branch_pages: 0
+leaf_pages: 1
+overflow_pages: 1
+entries: 6
+gcode_metadata:
+psize: 4096
+depth: 2
+branch_pages: 1
+leaf_pages: 11
+overflow_pages: 0
+entries: 21
+history:
+psize: 4096
+depth: 2
+branch_pages: 1
+leaf_pages: 19
+overflow_pages: 0
+entries: 41
+moonraker:
+psize: 4096
+depth: 1
+branch_pages: 0
+leaf_pages: 1
+overflow_pages: 0
+entries: 8
+obico:
+psize: 4096
+depth: 1
+branch_pages: 0
+leaf_pages: 1
+overflow_pages: 0
+entries: 1
+octoeverywhere:
+psize: 4096
+depth: 1
+branch_pages: 0
+leaf_pages: 1
+overflow_pages: 0
+entries: 1
+update_manager:
+psize: 4096
+depth: 1
+branch_pages: 0
+leaf_pages: 1
+overflow_pages: 4
+entries: 5
+2024-02-17 21:28:30,319 [server.py:main()] - Server Shutdown
+-------------------- Log Start | Sun Feb 18 02:28:56 2024 --------------------
+data_path: /home/scott/Ender3_data
+is_default_data_path: False
+config_file: /home/scott/Ender3_data/config/moonraker.conf
+startup_warnings: []
+verbose: False
+debug: False
+asyncio_debug: False
+is_backup_config: False
+is_python_package: False
+instance_uuid: f27c09a236c0415692438476cf43c78d
+unix_socket_path: /home/scott/Ender3_data/comms/moonraker.sock
+software_version: v0.8.0-310-g67c98f6
+git_branch: master
+git_remote: origin
+git_repo_url: https://github.com/Arksine/moonraker.git
+modified_files: []
+unofficial_components: []
+log_file: /home/scott/Ender3_data/logs/moonraker.log
+python_version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+launch_args: /home/scott/moonraker-env/bin/python /home/scott/moonraker/moonraker/moonraker.py -d /home/scott/Ender3_data
+msgspec_enabled: False
+uvloop_enabled: False
+2024-02-17 21:28:56,131 [confighelper.py:read_file()] - Configuration File '/home/scott/Ender3_data/config/moonraker.conf' parsed, total size: 714 B
+2024-02-17 21:28:56,131 [server.py:add_log_rollover_item()] - 
+#################### Moonraker Configuration ####################
+
+[server]
+host = 0.0.0.0
+port = 7126
+klippy_uds_address = /home/scott/Ender3_data/comms/klippy.sock
+
+[authorization]
+trusted_clients = 
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	FE80::/10
+	::1/128
+cors_domains = 
+	*.lan
+	*.local
+	*://localhost
+	*://localhost:*
+	*://my.mainsail.xyz
+	*://app.fluidd.xyz
+
+[octoprint_compat]
+
+[history]
+
+[update_manager]
+channel = dev
+refresh_interval = 168
+
+[update_manager fluidd]
+type = web
+channel = stable
+repo = fluidd-core/fluidd
+path = ~/fluidd
+
+[update_manager fluidd-config]
+type = git_repo
+primary_branch = master
+path = ~/fluidd-config
+origin = https://github.com/fluidd-core/fluidd-config.git
+managed_services = klipper
+
+#################################################################
+All Configuration Files:
+/home/scott/Ender3_data/config/moonraker.conf
+#################################################################
+2024-02-17 21:28:56,215 [server.py:load_component()] - Component (secrets) loaded
+2024-02-17 21:28:56,218 [server.py:load_component()] - Component (template) loaded
+2024-02-17 21:28:56,221 [server.py:load_component()] - Component (klippy_connection) loaded
+2024-02-17 21:28:56,579 [server.py:load_component()] - Component (application) loaded
+2024-02-17 21:28:56,596 [server.py:load_component()] - Component (websockets) loaded
+2024-02-17 21:28:56,645 [server.py:load_component()] - Component (dbus_manager) loaded
+2024-02-17 21:28:56,660 [server.py:add_log_rollover_item()] - 
+Database Versions: pylmdb = 1.4.1, lmdb = (0, 9, 29)
+Unsafe Shutdown Count: 9
+2024-02-17 21:28:56,666 [server.py:load_component()] - Component (database) loaded
+2024-02-17 21:28:56,681 [file_manager.py:__init__()] - Using File System Observer: inotify
+2024-02-17 21:28:56,714 [server.py:load_component()] - Component (file_manager) loaded
+2024-02-17 21:28:56,727 [authorization.py:__init__()] - Authorization Configuration Loaded
+Trusted Clients:
+10.0.0.0/8
+127.0.0.0/8
+169.254.0.0/16
+172.16.0.0/12
+192.168.0.0/16
+fe80::/10
+::1/128
+CORS Domains:
+.*\.lan
+.*\.local
+.*://localhost
+.*://localhost:.*
+.*://my\.mainsail\.xyz
+.*://app\.fluidd\.xyz
+2024-02-17 21:28:56,730 [server.py:load_component()] - Component (authorization) loaded
+2024-02-17 21:28:56,739 [server.py:load_component()] - Component (klippy_apis) loaded
+2024-02-17 21:28:56,919 [server.py:add_log_rollover_item()] - 
+System Info:
+
+***python***
+  version: (3, 10, 12, 'final', 0)
+  version_string: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+
+***cpu_info***
+  cpu_count: 4
+  bits: 64bit
+  processor: x86_64
+  cpu_desc: Intel(R) Core(TM) i3-4130 CPU @ 3.40GHz
+  serial_number: 
+  hardware_desc: 
+  model: 
+  total_memory: 8040416
+  memory_units: kB
+
+***sd_info***
+
+***distribution***
+  name: Ubuntu 22.04.4 LTS
+  id: ubuntu
+  version: 22.04
+  version_parts: {'major': '22', 'minor': '04', 'build_number': ''}
+  like: debian
+  codename: jammy
+  release_info: {}
+
+***virtualization***
+  virt_type: none
+  virt_identifier: none
+
+***network***
+
+***canbus***
+
+***Allowed Services***
+  klipper_mcu
+  webcamd
+  MoonCord
+  KlipperScreen
+  moonraker-telegram-bot
+  moonraker-obico
+  sonar
+  crowsnest
+  octoeverywhere
+  octoeverywhere-Ender3
+2024-02-17 21:28:56,919 [server.py:load_component()] - Component (shell_command) loaded
+2024-02-17 21:28:56,919 [machine.py:__init__()] - Using System Provider: systemd_dbus
+2024-02-17 21:28:56,923 [server.py:add_log_rollover_item()] - Module libcamera unavailble, import failed
+2024-02-17 21:28:56,923 [server.py:load_component()] - Component (machine) loaded
+2024-02-17 21:28:56,926 [server.py:load_component()] - Component (data_store) loaded
+2024-02-17 21:28:56,928 [proc_stats.py:__init__()] - Unable to find 'vcgencmd', throttle checking disabled
+2024-02-17 21:28:56,928 [server.py:load_component()] - Component (proc_stats) loaded
+2024-02-17 21:28:56,930 [server.py:load_component()] - Component (job_state) loaded
+2024-02-17 21:28:56,932 [server.py:load_component()] - Component (job_queue) loaded
+2024-02-17 21:28:56,945 [server.py:load_component()] - Component (http_client) loaded
+2024-02-17 21:28:56,950 [server.py:load_component()] - Component (announcements) loaded
+2024-02-17 21:28:56,959 [server.py:load_component()] - Component (webcam) loaded
+2024-02-17 21:28:56,960 [server.py:load_component()] - Component (extensions) loaded
+2024-02-17 21:28:56,963 [server.py:load_component()] - Component (octoprint_compat) loaded
+2024-02-17 21:28:56,965 [server.py:load_component()] - Component (history) loaded
+2024-02-17 21:28:57,006 [base_deploy.py:log_info()] - Git Repo moonraker: Detected virtualenv: /home/scott/moonraker-env
+2024-02-17 21:28:57,008 [base_deploy.py:log_info()] - Git Repo klipper: Detected virtualenv: /home/scott/klippy-env
+2024-02-17 21:28:57,018 [server.py:load_component()] - Component (update_manager) loaded
+2024-02-17 21:28:57,019 [server.py:_initialize_component()] - Performing Component Post Init: [dbus_manager]
+2024-02-17 21:28:57,029 [server.py:_initialize_component()] - Performing Component Post Init: [file_manager]
+2024-02-17 21:28:57,076 [server.py:_initialize_component()] - Performing Component Post Init: [authorization]
+2024-02-17 21:28:57,077 [server.py:_initialize_component()] - Performing Component Post Init: [machine]
+2024-02-17 21:28:57,077 [machine.py:validation_init()] - Installation version in database up to date
+2024-02-17 21:28:57,247 [machine.py:check_virt_status()] - No Virtualization Detected
+2024-02-17 21:28:57,251 [machine.py:_find_public_ip()] - Detected Local IP: 192.168.4.102
+2024-02-17 21:28:57,252 [webcam.py:_set_default_host_ip()] - Default public webcam address set: http://192.168.4.102
+2024-02-17 21:28:57,272 [machine.py:extract_service_info()] - Detected alternate unit name for moonraker: moonraker-Ender3.service
+2024-02-17 21:28:57,284 [server.py:add_log_rollover_item()] - 
+Systemd unit moonraker-Ender3.service:
+unit_name: moonraker-Ender3.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['-.mount', 'system.slice', 'network-online.target', 'sysinit.target']
+**After=['system.slice', 'systemd-journald.socket', 'sysinit.target', 'basic.target', '-.mount', 'network-online.target']
+**SupplementaryGroups=['moonraker-admin']
+**EnvironmentFiles=/home/scott/Ender3_data/systemd/moonraker.env
+**ExecStart=/home/scott/moonraker-env/bin/python $MOONRAKER_ARGS
+**WorkingDirectory=/home/scott/moonraker
+**FragmentPath=/etc/systemd/system/moonraker-Ender3.service
+**Description=API Server for Klipper SV1 Ender3
+**User=scott
+2024-02-17 21:28:57,285 [server.py:_initialize_component()] - Performing Component Post Init: [proc_stats]
+2024-02-17 21:28:57,285 [server.py:_initialize_component()] - Performing Component Post Init: [announcements]
+2024-02-17 21:28:57,285 [server.py:_initialize_component()] - Performing Component Post Init: [webcam]
+2024-02-17 21:28:57,285 [webcam.py:_set_default_host_ip()] - Default public webcam address set: http://192.168.4.102
+2024-02-17 21:28:57,285 [server.py:_initialize_component()] - Performing Component Post Init: [klippy_connection]
+2024-02-17 21:28:57,285 [server.py:add_log_rollover_item()] - 
+Systemd unit klipper-Ender3.service:
+unit_name: klipper-Ender3.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['sysinit.target', 'system.slice', '-.mount']
+**After=['network-online.target', '-.mount', 'sysinit.target', 'systemd-journald.socket', 'basic.target', 'system.slice']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/scott/Ender3_data/systemd/klipper.env
+**ExecStart=/home/scott/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/scott/klipper
+**FragmentPath=/etc/systemd/system/klipper-Ender3.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=scott
+2024-02-17 21:28:57,285 [server.py:_initialize_component()] - Performing Component Post Init: [history]
+2024-02-17 21:28:57,286 [server.py:_initialize_component()] - Performing Component Post Init: [update_manager]
+2024-02-17 21:28:57,300 [base_deploy.py:log_info()] - PackageDeploy: PackageKit Provider Configured
+2024-02-17 21:28:58,821 [confighelper.py:create_backup()] - Backing up last working configuration to '/home/scott/Ender3_data/config/.moonraker.conf.bkp'
+2024-02-17 21:28:58,822 [extensions.py:start_unix_server()] - Creating Unix Domain Socket at '/home/scott/Ender3_data/comms/moonraker.sock'
+2024-02-17 21:28:58,822 [server.py:start_server()] - Starting Moonraker on (0.0.0.0, 7126), Hostname: printbot
+2024-02-17 21:28:58,823 [application.py:listen()] - SSL Certificate/Key not configured, aborting HTTPS Server startup
+2024-02-17 21:28:59,074 [klippy_connection.py:_do_connect()] - Klippy Connection Established
+2024-02-17 21:28:59,091 [machine.py:extract_service_info()] - Detected alternate unit name for klipper: klipper-Ender3.service
+2024-02-17 21:28:59,098 [server.py:add_log_rollover_item()] - 
+Systemd unit klipper-Ender3.service:
+unit_name: klipper-Ender3.service
+is_default: False
+manager: systemd
+Properties:
+**Requires=['-.mount', 'system.slice', 'sysinit.target']
+**After=['network-online.target', 'basic.target', 'sysinit.target', '-.mount', 'system.slice', 'systemd-journald.socket']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/scott/Ender3_data/systemd/klipper.env
+**ExecStart=/home/scott/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/scott/klipper
+**FragmentPath=/etc/systemd/system/klipper-Ender3.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=scott
+2024-02-17 21:28:59,351 [server.py:add_log_rollover_item()] - Klipper Version: v0.12.0-102-g9f41f53c-dirty
+2024-02-17 21:29:00,689 [base_deploy.py:log_info()] - PackageKit: Detected 4 package updates:
+language-pack-en
+language-pack-en-base
+language-pack-gnome-en
+language-pack-gnome-en-base
+2024-02-17 21:29:00,694 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker status --porcelain -b) successfully finished
+2024-02-17 21:29:00,702 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker branch --list --no-color) successfully finished
+2024-02-17 21:29:00,707 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker remote get-url origin) successfully finished
+2024-02-17 21:29:01,494 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker fetch origin --prune --progress) successfully finished
+2024-02-17 21:29:01,497 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker merge-base --is-ancestor HEAD origin/master) successfully finished
+2024-02-17 21:29:01,500 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker rev-parse HEAD) successfully finished
+2024-02-17 21:29:01,508 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker describe --always --tags --long --dirty --abbrev=8) successfully finished
+2024-02-17 21:29:01,511 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker rev-parse origin/master) successfully finished
+2024-02-17 21:29:01,519 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker describe origin/master --always --tags --long --abbrev=8) successfully finished
+2024-02-17 21:29:01,523 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker rev-list HEAD..e87ab4a8955ca434b7f7c09d3eba443200cb523d --count) successfully finished
+2024-02-17 21:29:01,526 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker log 67c98f6a7610ff4196954a665e5599bea9ccf5ac..origin/master --format="sha:%H%x1Dauthor:%an%x1Ddate:%ct%x1Dsubject:%s%x1Dmessage:%b%x1E" --max-count=100) successfully finished
+2024-02-17 21:29:01,549 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/moonraker for-each-ref --count=100 --sort='-creatordate' --contains=HEAD --merged=origin/master --format='%(if)%(*objecttype)%(then)%(*objecttype) %(*objectname)%(else)%(objecttype) %(objectname)%(end) %(refname)' 'refs/tags') successfully finished
+2024-02-17 21:29:01,549 [git_deploy.py:log_repo_info()] - Git Repo moonraker Detected:
+Owner: Arksine
+Repository Name: moonraker
+Path: /home/scott/moonraker
+Remote: origin
+Branch: master
+Remote URL: https://github.com/Arksine/moonraker.git
+Recovery URL: https://github.com/Arksine/moonraker.git
+Current Commit SHA: 67c98f6a7610ff4196954a665e5599bea9ccf5ac
+Upstream Commit SHA: e87ab4a8955ca434b7f7c09d3eba443200cb523d
+Current Version: v0.8.0-310-g67c98f6a
+Upstream Version: v0.8.0-313-ge87ab4a8
+Rollback Commit: ee62d07c6826ec9c39b381ee9e85249c6d753cd5
+Rollback Branch: master
+Rollback Version: v0.8.0-142-gee62d07c
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 3
+Diverged: False
+Repo Warnings:
+  Multiple instances of Moonraker managing this repo:
+  moonraker-DeltaBot@2d5d16890307426493c293c698a71bfb
+  moonraker-PrusaMk2@85b67ffa294f435f8fd6378eb439b231
+  moonraker-KobraGo@61e6be5202c5414d8b06e99072926217
+  moonraker-Ender3@f27c09a236c0415692438476cf43c78d
+2024-02-17 21:29:01,549 [base_deploy.py:log_info()] - Git Repo moonraker: Channel: dev
+2024-02-17 21:29:01,550 [base_deploy.py:log_info()] - Git Repo moonraker: Validity check for git repo passed
+2024-02-17 21:29:01,557 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper status --porcelain -b) successfully finished
+2024-02-17 21:29:01,563 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper branch --list --no-color) successfully finished
+2024-02-17 21:29:01,566 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper remote get-url origin) successfully finished
+2024-02-17 21:29:06,206 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper fetch origin --prune --progress) exited with return code 1
+2024-02-17 21:29:07,038 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper fetch origin --prune --progress) successfully finished
+2024-02-17 21:29:07,041 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper merge-base --is-ancestor HEAD origin/master) successfully finished
+2024-02-17 21:29:07,044 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper rev-parse HEAD) successfully finished
+2024-02-17 21:29:07,081 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper describe --always --tags --long --dirty --abbrev=8) successfully finished
+2024-02-17 21:29:07,084 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper rev-parse origin/master) successfully finished
+2024-02-17 21:29:07,121 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper describe origin/master --always --tags --long --abbrev=8) successfully finished
+2024-02-17 21:29:07,124 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper rev-list HEAD..28f06a104bc0cfe3a7d36db343ade5a805b3e132 --count) successfully finished
+2024-02-17 21:29:07,127 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper log 9f41f53c5e364694b9b41279b3b3aee34250b93a..origin/master --format="sha:%H%x1Dauthor:%an%x1Ddate:%ct%x1Dsubject:%s%x1Dmessage:%b%x1E" --max-count=100) successfully finished
+2024-02-17 21:29:07,166 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/klipper for-each-ref --count=100 --sort='-creatordate' --contains=HEAD --merged=origin/master --format='%(if)%(*objecttype)%(then)%(*objecttype) %(*objectname)%(else)%(objecttype) %(objectname)%(end) %(refname)' 'refs/tags') successfully finished
+2024-02-17 21:29:07,166 [git_deploy.py:log_repo_info()] - Git Repo klipper Detected:
+Owner: Klipper3d
+Repository Name: klipper
+Path: /home/scott/klipper
+Remote: origin
+Branch: master
+Remote URL: https://github.com/Klipper3d/klipper
+Recovery URL: https://github.com/Klipper3d/klipper
+Current Commit SHA: 9f41f53c5e364694b9b41279b3b3aee34250b93a
+Upstream Commit SHA: 28f06a104bc0cfe3a7d36db343ade5a805b3e132
+Current Version: v0.12.0-102-g9f41f53c
+Upstream Version: v0.12.0-113-g28f06a10
+Rollback Commit: 6adff3954b149877c8a587893b18b291e34856b2
+Rollback Branch: master
+Rollback Version: v0.11.0-291-g6adff395
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 11
+Diverged: False
+Repo Warnings:
+  Repo has untracked source files: ['klippy/extras/gcode_shell_command.py']
+  Multiple instances of Moonraker managing this repo:
+  moonraker-DeltaBot@2d5d16890307426493c293c698a71bfb
+  moonraker-PrusaMk2@85b67ffa294f435f8fd6378eb439b231
+  moonraker-KobraGo@61e6be5202c5414d8b06e99072926217
+  moonraker-Ender3@f27c09a236c0415692438476cf43c78d
+2024-02-17 21:29:07,166 [base_deploy.py:log_info()] - Git Repo klipper: Channel: dev
+2024-02-17 21:29:07,166 [base_deploy.py:log_info()] - Git Repo klipper: Validity check for git repo passed
+2024-02-17 21:29:07,343 [base_deploy.py:log_info()] - Web Client fluidd: Detected
+Repo: fluidd-core/fluidd
+Channel: stable
+Path: /home/scott/fluidd
+Local Version: v1.27.1
+Remote Version: v1.28.0
+Valid: True
+Fallback Detected: False
+Pre-release: False
+Download Url: https://github.com/fluidd-core/fluidd/releases/download/v1.28.0/fluidd.zip
+Download Size: 3629558
+Content Type: application/zip
+Rollback Version: v1.25.2
+Rollback Repo: fluidd-core/fluidd
+2024-02-17 21:29:07,347 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config status --porcelain -b) successfully finished
+2024-02-17 21:29:07,355 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config branch --list --no-color) successfully finished
+2024-02-17 21:29:07,358 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config remote get-url origin) successfully finished
+2024-02-17 21:29:07,712 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config fetch origin --prune --progress) successfully finished
+2024-02-17 21:29:07,715 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config merge-base --is-ancestor HEAD origin/master) successfully finished
+2024-02-17 21:29:07,718 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config rev-parse HEAD) successfully finished
+2024-02-17 21:29:07,721 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config describe --always --tags --long --dirty --abbrev=8) successfully finished
+2024-02-17 21:29:07,724 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config rev-parse origin/master) successfully finished
+2024-02-17 21:29:07,727 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config describe origin/master --always --tags --long --abbrev=8) successfully finished
+2024-02-17 21:29:07,731 [shell_command.py:_check_proc_success()] - Command (git -C /home/scott/fluidd-config rev-list HEAD..ce48c5854e9ca3ca72b63d0327069fac20e94c7c --count) successfully finished
+2024-02-17 21:29:07,731 [git_deploy.py:log_repo_info()] - Git Repo fluidd-config Detected:
+Owner: fluidd-core
+Repository Name: fluidd-config
+Path: /home/scott/fluidd-config
+Remote: origin
+Branch: master
+Remote URL: https://github.com/fluidd-core/fluidd-config.git
+Recovery URL: https://github.com/fluidd-core/fluidd-config.git
+Current Commit SHA: ce48c5854e9ca3ca72b63d0327069fac20e94c7c
+Upstream Commit SHA: ce48c5854e9ca3ca72b63d0327069fac20e94c7c
+Current Version: v1.2.0-0-gce48c585
+Upstream Version: v1.2.0-0-gce48c585
+Rollback Commit: d44ec292b776131f892ab1650eaab89e14d2199f
+Rollback Branch: master
+Rollback Version: v0.0.0-10-gd44ec292-inferred
+Is Dirty: False
+Is Detached: False
+Is Shallow: False
+Commits Behind Count: 0
+Diverged: False
+Repo Warnings:
+  Multiple instances of Moonraker managing this repo:
+  moonraker-DeltaBot@2d5d16890307426493c293c698a71bfb
+  moonraker-PrusaMk2@85b67ffa294f435f8fd6378eb439b231
+  moonraker-KobraGo@61e6be5202c5414d8b06e99072926217
+  moonraker-Ender3@f27c09a236c0415692438476cf43c78d
+2024-02-17 21:29:07,731 [base_deploy.py:log_info()] - Git Repo fluidd-config: Channel: dev
+2024-02-17 21:29:07,731 [base_deploy.py:log_info()] - Git Repo fluidd-config: Validity check for git repo passed
+2024-02-17 21:30:27,071 [klippy_connection.py:_request_initial_subscriptions()] - Webhooks Subscribed
+2024-02-17 21:30:27,073 [klippy_connection.py:_request_initial_subscriptions()] - GCode Output Subscribed
+2024-02-17 21:30:27,075 [klippy_connection.py:_check_ready()] - 
+mcu 'mcu': Unable to connect
+Once the underlying issue is corrected, use the
+"FIRMWARE_RESTART" command to reset the firmware, reload the
+config, and restart the host software.
+Error configuring printer
+
